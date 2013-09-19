@@ -2,6 +2,7 @@ class Weight < ActiveRecord::Base
   attr_accessible :weight
 	
 	validates :user_id, :presence => true
+	validates :weight, :numericality => true
 	
 	belongs_to :user
 	
