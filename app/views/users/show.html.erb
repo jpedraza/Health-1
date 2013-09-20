@@ -21,16 +21,6 @@
 	<th>Date</th>
   </tr>
 
- <%= render '/shared/weight' %>
-  
-<% @weights.each do |weight| %>
-  <tr>
-    <td><%= weight.weight %></td>
-    <td><%= weight.date_of_entry %></td>
-  </tr>
-<% end %>
-</table>
-
 <br/>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
