@@ -15,11 +15,9 @@
   <%= @user.points %>
 </p>
 
-<table>
-  <tr>
-    <th>Weight</th>
-	<th>Date</th>
-  </tr>
+<% if @user.weight.exists? %>
+	<%= render 'shared/user_weight' %>
+<% end %>
 
 <br/>
 

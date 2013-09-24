@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
 	before_filter :authenticate, :except => [:show, :new, :create] 
 	before_filter :correct_user, :only => [:edit, :update]
-	before_filter :admin_user, 	 :only => [:destroy]
 
   def new
 		@user = User.new
@@ -17,11 +16,6 @@ class UsersController < ApplicationController
   def edit
 		@user = User.find(params[:id])
 		@title = "Edit user"
-  end
-  
-  def weight
-		@user = User.find(params[:id])
-		@title = "Please enter how much you weigh today"
   end
   		
 	def index 
@@ -67,10 +61,6 @@ class UsersController < ApplicationController
 		def correct_user
 			@user = User.find(params[:id])
 			redirect_to(root_path) unless current_user?(@user)
-		end
-	
-		def admin_user
-			redirect_to(root_path) unless current_user.admin?
 		end
 	
 end

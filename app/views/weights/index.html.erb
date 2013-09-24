@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<%= render '/shared/weight' %>
+
 <table>
   <tr>
     <th>Weight</th>
 	<th>Date</th>
   </tr>
 
-<%= render '/shared/weight' %>
-  
 <% @weights.each do |weight| %>
   <tr>
     <td><%= weight.weight %></td>

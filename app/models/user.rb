@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :email, :name, :password, :points, :password_confirmation, 
-									:current_weight, :original_weight
+  attr_accessible :email, :name, :password, :points, :password_confirmation
   
   has_many :weight, :dependent => :destroy
   						
@@ -16,7 +15,6 @@ class User < ActiveRecord::Base
 											 :confirmation => true,
 											 :length => { :within => 6..40 }
 											 
-	validates :original_weight, :current_weight, :numericality => true
 	
   before_save :encrypt_password
 	
@@ -37,6 +35,14 @@ class User < ActiveRecord::Base
 		user = find_by_id(id)
 		(user && user.salt == cookie_salt) ? user : nil
   end
+	
+	def set_original_weight=(weight)
+		@original_weight = weight
+	end
+	
+	def set_current_weight(weight)
+		self.current_weight = 100
+	end
 	
   private
   
