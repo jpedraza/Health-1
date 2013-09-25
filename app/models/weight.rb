@@ -8,19 +8,11 @@ class Weight < ActiveRecord::Base
 	
 	default_scope :order => 'weights.created_at DESC' 
 
-	before_save :add_date, :update_weights
-
+	before_save :add_date
 	private
 	
 	def add_date
 		self.date_of_entry ||= Date.today
 	end
-	
-	def update_weights
-		# self.weight.user.original_weight = self.weight
 		
-
-		#  @user.current_weight = weight
-	end
-	
 end

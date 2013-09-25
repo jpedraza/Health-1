@@ -1,0 +1,22 @@
+<%= form_for(@calorie) do |f| %>
+	
+   <div class="field">
+    <%= f.label :protein %><br />
+    <%= f.text_field :protein %>
+  </div>
+  <div class="field">
+    <%= f.label :fat %><br />
+    <%= f.text_field :fat %>
+  </div>
+  <div class="field">
+    <%= f.label :carbs %><br />
+    <%= f.text_field :carbs %>
+  </div>
+	<div class="field">
+    <%= f.label :date_of_entry %><br />
+		<%= f.select :date_of_entry, (2..6).map { |i| [ i.days.ago.strftime("%m/%d/%Y"), i.days.ago ] } %>
+	</div>
+  <div class="actions">
+    <%= f.submit "Record Macros" %>
+  </div>
+<% end %>

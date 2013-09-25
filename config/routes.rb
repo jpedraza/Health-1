@@ -11,11 +11,13 @@ Health::Application.routes.draw do
   resources :users
   resources :sessions, 				:only => [:new, :create, :destroy]
   resources :weights	
+	resources :calories
   
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/weight', :to => 'pages#weight'
+	match '/calorie', :to => 'pages#calorie'
   
   match '/contact', :to => 'pages#contact'
   match '/help', :to => 'pages#help'

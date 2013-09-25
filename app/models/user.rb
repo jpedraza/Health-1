@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :points, :password_confirmation
   
   has_many :weight, :dependent => :destroy
+	has_many :calorie, :dependent => :destroy
   						
  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

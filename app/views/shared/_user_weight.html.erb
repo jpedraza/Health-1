@@ -1,12 +1,12 @@
-	<table>
-		<tr>
-			<th><b>Original Weight</b>
-			<th><b>Current Weight</b>
-			<th><b>Weight Lost</b>
-		</tr>
-		<tr>
-			<th><%= @user.weight.last.weight %>
-			<th><%= @user.weight.first.weight %>
-			<th><%= @user.weight.last.weight-@user.weight.first.weight %>
-		</tr>
-	</table>
+<table>
+	<tr>
+		<th><b>Original Weight</b>
+		<th><b>Current Weight</b>
+		<th><b>Weight Lost</b>
+	</tr>
+	<tr>
+		<th><%= @user.weight.last.weight %>
+		<th><%= @user.weight.first.weight %>
+		<th><%= @user.weight.last.weight-@user.weight.first.weight %>
+	</tr>
+</table>
