@@ -17,9 +17,7 @@ class WeightsController < ApplicationController
 		@weights = Weight.paginate(:page => params[:page]).where(user_id: current_user.id)
 		@weight = Weight.new
 		@title = "Enter Today's Weight"
-		# if Weight.where(user_id: current_user.id, date_of_entry: Date.today).exists?
-		#	flash[:success] = "There's already an entry for today."
-		# end
+		@user = current_user
 	end
 	
 end

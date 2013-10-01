@@ -11,7 +11,7 @@
     </div>
   <% end %>
 	
-   <div class="field">
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
@@ -27,7 +27,11 @@
     <%= f.label "What do you want to be called?" %><br />
     <%= f.text_field :name %>
   </div>
-	
+	<div class="field">
+		<%= f.label "What units do you work in?" %><br />
+		<%= f.radio_button(:metric, 0) %> Kilograms
+		<%= f.radio_button(:metric, 1) %> Pounds
+	  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

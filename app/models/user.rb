@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :email, :name, :password, :points, :password_confirmation
+  attr_accessible :email, :name, :password, :points, :password_confirmation, :metric
+	# :metric - 0 means kilograms, 1 means pounds. 
   
   has_many :weight, :dependent => :destroy
 	has_many :calorie, :dependent => :destroy
@@ -36,15 +37,7 @@ class User < ActiveRecord::Base
 		user = find_by_id(id)
 		(user && user.salt == cookie_salt) ? user : nil
   end
-	
-	def set_original_weight=(weight)
-		@original_weight = weight
-	end
-	
-	def set_current_weight(weight)
-		self.current_weight = 100
-	end
-	
+
   private
   
 	def default_points

@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <%= render '/shared/weight' %>
-
+<%= render '/shared/user_weight' %>
 <table>
   <tr>
     <th>Weight</th>
@@ -10,7 +10,11 @@
 
 	<% @weights.each do |weight| %>
 		<tr>
-			<td><%= weight.weight %></td>
+			<% if @user.metric == 0 %>
+				<td><%= (weight.weight / 2.2).round(1) %> kg</td>
+			<% else %>
+				<td><%= weight.weight.round(1) %> lb</td>
+			<% end %>
 			<td><%= weight.date_of_entry %></td>
 		</tr>
 	<% end %>

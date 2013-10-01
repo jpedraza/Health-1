@@ -15,6 +15,15 @@
   <%= @user.points %>
 </p>
 
+<p>
+	<b>Units:</b>
+	<% if @user.metric == 0 %>
+		Using kilograms
+	<% else %>
+		Using pounds
+	<% end %>
+</p>
+
 <% if @user.weight.exists? %>
 	<%= render 'shared/user_weight' %>
 <% end %>

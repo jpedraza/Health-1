@@ -8,11 +8,19 @@ class Weight < ActiveRecord::Base
 	
 	default_scope :order => 'weights.created_at DESC' 
 
-	before_save :add_date
+	before_save :add_date, :metric
+	
 	private
 	
 	def add_date
 		self.date_of_entry ||= Date.today
 	end
+	
+	def metric
+		if User.where(user_id).first.metric == 0
+			self.weight *= 2.2
+		end
+	end
+	
 		
 end
