@@ -21,8 +21,11 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 	
 	before_create :default_points
+
+	def update_calorie_points!
+		self.update_column(:points, self.calorie.sum(:points))
+	end
 	
- 
   def has_password?(submitted_password)
 		encrypted_password == encrypt(submitted_password)
   end

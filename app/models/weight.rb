@@ -21,6 +21,5 @@ class Weight < ActiveRecord::Base
 			self.weight *= 2.2
 		end
 	end
-	
 		
 end
