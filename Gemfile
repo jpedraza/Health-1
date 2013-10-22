@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.13'
 
@@ -10,6 +10,7 @@ gem 'faker', '1.1.2'
 gem 'gravatar_image_tag'
 gem 'will_paginate'
 gem 'factory_girl_rails'
+gem 'gon'
 
 
 # Gems used only for assets and not required

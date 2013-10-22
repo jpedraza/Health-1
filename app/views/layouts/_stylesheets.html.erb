@@ -1,2 +1,4 @@
-		<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
-		<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+<%= include_gon %>
+<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+<%= javascript_include_tag "application", "jquery", "highcharts" %>
