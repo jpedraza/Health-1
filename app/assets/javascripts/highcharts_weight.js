@@ -1,11 +1,15 @@
 $(function () { 
+    newData = [];
+    for (i in gon.entries) {
+        newData.push( [ new Date(gon.entries[i][0]).getTime(), parseInt(gon.entries[i][1]) ] );
+    }
 	var weightchart = new Highcharts.Chart({
 		chart: {
-			renderTo: "weight_chart2",
+			renderTo: "weight_chart",
 			type: 'line'
 		},
 		title: {
-			text: 'weight loss history'
+			text: gon.user_name + '\'s weight loss history'
 		},
 		xAxis: {
 			type: 'datetime',
@@ -18,9 +22,14 @@ $(function () {
 				text: 'Weight'
 			}
 		},
+		plotOptions: {
+			series: {
+                allowPointSelect: true
+            }
+        },
 		series: [{
 			name: 'Weight loss history',
-			data: [[Date.UTC(2013, 1, 1), 87.2],[Date.UTC(2013, 0, 1), 90.2]]
+			data: newData
 		}]
 	});
 });

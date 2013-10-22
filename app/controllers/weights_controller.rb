@@ -18,6 +18,12 @@ class WeightsController < ApplicationController
 		@weight = Weight.new
 		@title = "Enter Today's Weight"
 		@user = current_user
+		gon.user_name = @user.name
+		entry_array = []
+		@weights.each do |holder|
+			entry_array << [holder.date_of_entry, holder.weight.round(1)]
+		end
+		gon.entries = entry_array
 	end
 	
 end
