@@ -1,0 +1,21 @@
+<table>
+  <tr>
+		<th>Date of Entry</th>
+		<th>Calories</th>
+    <th>Protein</th>
+		<th>Fat</th>
+		<th>Carbs</th>
+		<th>Points</th>
+  </tr>
+
+	<% @calories.each do |calorie| %>
+		<tr>
+			<td><%= calorie.date_of_entry %></td>
+			<td><%= calorie.calories %></td>
+			<td><%= calorie.protein %></td>
+			<td><%= calorie.fat %></td>
+			<td><%= calorie.carbs %></td>
+			<td><%= calorie.points %></td>
+		</tr>
+	<% end %>
+</table>

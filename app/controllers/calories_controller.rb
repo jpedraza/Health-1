@@ -14,9 +14,17 @@ class CaloriesController < ApplicationController
 	end
 	
 	def index
-		@calories = Calorie.paginate(:page => params[:page]).where(user_id: current_user.id)
+		@calories = Calorie.where(user_id: current_user.id)
 		@calorie = Calorie.new
 		@title = "Record Macro Data"
+		@user = current_user
+		gon.user_name = @user.name
+		calorie_array = []
+		@calories.each do |holder|
+			calorie_array << [holder.date_of_entry, (holder.protein.round(1)*4), 
+				(holder.fat.round(1)*9), (holder.carbs.round(1)*4), holder.points]
+		end
+		gon.calories = calorie_array
 	end
 	
 end

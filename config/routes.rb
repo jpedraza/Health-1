@@ -7,17 +7,22 @@ Health::Application.routes.draw do
   get "pages/contact"
   get "pages/about"
   get "pages/help"
-	
-  resources :users
+  get "profile", to: 'users#show'
+  get "profile/edit", to: 'users#edit'
+  
+  resources :users, :only => [:new, :create, :destroy, :index]				
   resources :sessions, 				:only => [:new, :create, :destroy]
   resources :weights	
 	resources :calories
+	resources :articles,				:only => [:show, :index]
   
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/weight', :to => 'pages#weight'
 	match '/calorie', :to => 'pages#calorie'
+
+
   
   match '/contact', :to => 'pages#contact'
   match '/help', :to => 'pages#help'

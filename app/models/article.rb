@@ -1,3 +1,5 @@
 class Article < ActiveRecord::Base
-  # attr_accessible :title, :body, :points
+	extend FriendlyId
+	friendly_id :title, use: :slugged
+	attr_accessible :title, :body, :points
 end

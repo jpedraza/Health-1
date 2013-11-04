@@ -16,7 +16,7 @@ class Calorie < ActiveRecord::Base
 	private
 
 	def update_user_points
-    self.user.update_calorie_points!
+		self.user.update_calorie_points!
 	end
 	
 	# Quite simply, calculates how many calories the user consumed from a protein / fat / carb breakdown.

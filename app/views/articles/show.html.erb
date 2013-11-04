@@ -1,0 +1,15 @@
+This is a test for articles. This is article <%= @article.id %> <br>
+<% if current_user.points >= @article.points %>
+	Great! You can view this.
+<% else %>
+	Go away jerk.
+<% end %>
+<br><br>
+<% if Article.exists?(@article.id - 1) %>
+	Previously: <%= link_to Article.find(@article.id - 1).title, Article.find(@article.id - 1) %><br>
+<% end %>
+<% if Article.exists?(@article.id + 1) %>
+	Next: <%= link_to Article.find(@article.id + 1).title, Article.find(@article.id + 1) %>
+<% else %>
+	Congratulations! You have finished this website. Hopefully it has served you well in your weight loss quest. 
+<% end %>

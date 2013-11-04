@@ -1,0 +1,22 @@
+<h1>Listing Articles</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Points</th>
+
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+	<% if article.points < current_user.points %>
+		<td><%= link_to article.title, article %></td>
+	<% else %>
+		<td><%= article.title %></td>
+	<% end %>
+	<td><%= article.points %></td>
+  </tr>
+<% end %>
+</table>
+
+<br/>

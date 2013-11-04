@@ -11,7 +11,7 @@ gem 'gravatar_image_tag'
 gem 'will_paginate'
 gem 'factory_girl_rails'
 gem 'gon'
-
+gem 'friendly_id'
 
 # Gems used only for assets and not required
 # in production environments by default.

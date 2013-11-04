@@ -1,24 +1,9 @@
 <p id="notice"><%= notice %></p>
-
+<% content_for :head do %>
+	<%= javascript_include_tag 'weight' %>
+<% end %>
 <%= render '/shared/weight' %>
 <%= render '/shared/user_weight' %>
-<table>
-  <tr>
-    <th>Weight</th>
-		<th>Date</th>
-  </tr>
-  <%= render '/shared/weight_chart' %>
-
-	<% @weights.each do |weight| %>
-		<tr>
-			<% if @user.metric == 0 %>
-				<td><%= (weight.weight / 2.2).round(1) %> kg</td>
-			<% else %>
-				<td><%= weight.weight.round(1) %> lb</td>
-			<% end %>
-			<td><%= weight.date_of_entry %></td>
-		</tr>
-	<% end %>
-</table>
+<%= render '/shared/weight_chart' %>
 
 <br/>

@@ -1,0 +1,16 @@
+<table>
+	<tr>
+		<th>Weight</th>
+		<th>Date</th>
+	</tr>
+	<% @weights.each do |weight| %>
+		<tr>
+			<% if @user.metric == 0 %>
+				<td><%= (weight.weight / 2.2).round(1) %> kg</td>
+			<% else %>
+				<td><%= weight.weight.round(1) %> lb</td>
+			<% end %>
+			<td><%= weight.date_of_entry %></td>
+		</tr>
+	<% end %>
+</table>

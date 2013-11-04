@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
 	before_filter :authenticate, :except => [:show, :new, :create] 
-	before_filter :correct_user, :only => [:edit, :update]
 
   def new
 		@user = User.new
@@ -9,12 +8,12 @@ class UsersController < ApplicationController
   end
   
   def show
-		@user = User.find(params[:id])
+		@user = current_user
 		@title = @user.name
   end
   
   def edit
-		@user = User.find(params[:id])
+		@user = current_user
 		@title = "Edit user"
   end
   		
