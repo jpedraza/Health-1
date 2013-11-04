@@ -20,6 +20,7 @@ class WeightsController < ApplicationController
 		@user = current_user
 		gon.user_name = @user.name
 		entry_array = []
+<<<<<<< HEAD
 		if @user.metric == 1 
 			@weights.each do |holder|
 				entry_array << [holder.date_of_entry, holder.weight.round(1)]
@@ -28,6 +29,10 @@ class WeightsController < ApplicationController
 			@weights.each do |holder|
 				entry_array << [holder.date_of_entry, (holder.weight / 2.2 ).round(1)]
 			end
+=======
+		@weights.each do |holder|
+			entry_array << [holder.date_of_entry, holder.weight.round(1)]
+>>>>>>> 0038b3daa4a195f902512ed651df434a55863411
 		end
 		gon.entries = entry_array
 	end
