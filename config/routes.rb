@@ -10,10 +10,10 @@ Health::Application.routes.draw do
   get "profile", to: 'users#show'
   get "profile/edit", to: 'users#edit'
   
-  resources :users, :only => [:new, :create, :destroy, :index]				
+  resources :users, :only => [:new, :create, :destroy, :index, :update]				
   resources :sessions, 				:only => [:new, :create, :destroy]
-  resources :weights	
-	resources :calories
+  resources :weights,	:only => [:index, :create]
+	resources :calories, :only => [:index, :create]
 	resources :articles,				:only => [:show, :index]
   
   match '/signup', :to => 'users#new'

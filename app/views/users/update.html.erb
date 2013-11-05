@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @user.points %>
+</p>
+
+<p>
+	<b>Units:</b>
+	<% if @user.metric == 0 %>
+		Using kilograms
+	<% else %>
+		Using pounds
+	<% end %>
+</p>
+
+<% if @user.weight.exists? %>
+	<%= render 'shared/user_weight' %>
+<% end %>
+
+<br/>
+
+<%= link_to 'Edit', 'profile/edit' %> |
+<%= link_to 'Back', users_path %>
