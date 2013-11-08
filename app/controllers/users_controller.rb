@@ -27,7 +27,8 @@ class UsersController < ApplicationController
 		if @user.save
 			sign_in @user
 			flash[:success] = "Welcome to the Sample App!"
-			redirect_to @user
+			redirect_to '/profile'
+			UserMailer.registration_confirmation(@user).deliver
 		else
 			@title = "Sign up"
 			render 'new'
